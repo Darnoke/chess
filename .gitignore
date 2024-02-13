@@ -1,0 +1,93 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+bin/
+build/
+obj/
+lib/
+
+# Backup files
+*~
+*.bak
+
+# Other files and directories to ignore
+.DS_Store
+Thumbs.db
+
+# Dependency directories (uncomment if you want to ignore)
+#vendor/
+#node_modules/
+
+# IDE specific files
+*.code-workspace
+.vscode/
+*.idea/
+*.vs/
+*.cproject
+*.settings/
+*.project
+*.classpath
+
+# Log files
+*.log
+
+# Coverage files
+*.gcno
+*.gcda
+*.gcov
+*.lst
+
+# Temporary Files
+*.tmp
+*.temp
+*.swp
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.make
+*.cmake
+CMakeScripts/
+Testing/
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_CPack_Packages/
+install_manifest.txt
+
+# Exclude the build output directory if named differently
+#out/
+
+# Exclude specific project files/directories (examples)
+#my_custom_directory/
+#my_config_file.ini
