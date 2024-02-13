@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 #include "libchess/src/libchess/position.hpp"
 #include "Evaluator.h"
 

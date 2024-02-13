@@ -1,6 +1,4 @@
 #include "Evaluator.h"
-#include <iostream>
-#include <limits>
 
 libchess::Move Evaluator::getBestMove(libchess::Position position) {
   this->position = position;
@@ -8,7 +6,11 @@ libchess::Move Evaluator::getBestMove(libchess::Position position) {
   libchess::Move bestMove;
   bool maximizingPlayer = position.turn() == libchess::White;
 
-  for (const auto& move : position.legal_moves()) { 
+  auto moves = position.legal_moves(); 
+  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::shuffle(moves.begin(), moves.end(), std::default_random_engine(seed));
+
+  for (const auto& move : moves) { 
     this->position.makemove(move);
     
     int score = alphaBeta(/* depth = */ 4, std::numeric_limits<int>::lowest(), std::numeric_limits<int>::max(), !maximizingPlayer);
@@ -26,9 +28,11 @@ int Evaluator::alphaBeta(int depth, int alpha, int beta, bool maximizingPlayer) 
     return evaluate();
   }
 
+  auto moves = position.legal_moves(); 
+
   if (maximizingPlayer) {
     int maxEval = std::numeric_limits<int>::lowest();
-    for (const auto& move : position.legal_moves()) {
+    for (const auto& move : moves) {
       position.makemove(move);
       int eval = alphaBeta(depth - 1, alpha, beta, false);
       position.undomove();
@@ -41,7 +45,7 @@ int Evaluator::alphaBeta(int depth, int alpha, int beta, bool maximizingPlayer) 
     return maxEval;
   } else {
     int minEval = std::numeric_limits<int>::max();
-    for (const auto& move : position.legal_moves()) {
+    for (const auto& move : moves) {
       position.makemove(move);
       int eval = alphaBeta(depth - 1, alpha, beta, true);
       position.undomove();

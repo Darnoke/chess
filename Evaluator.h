@@ -2,6 +2,11 @@
 #define EVALUATOR_H
 
 #include "libchess/src/libchess/position.hpp"
+#include <iostream>
+#include <limits>
+#include <algorithm>
+#include <random> 
+#include <chrono> 
 
 class Evaluator {
 public:

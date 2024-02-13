@@ -1,5 +1,4 @@
 #include "ChessEngine.h"
-#include <iostream>
 
 void ChessEngine::run() {
   std::string line;
@@ -61,10 +60,8 @@ void ChessEngine::handleSetOption(std::istringstream& iss) {
     optionValue += token;
   }
 
-  // Now, set the option based on optionName and optionValue
   if (optionName == "Hash") {
     int hashSize = std::stoi(optionValue);
-    // Set your engine's hash size here
     // engine.setHashSize(hashSize);
     std::cout << "Not Set Hash to " << hashSize << std::endl;
   } else if (optionName == "SomeOtherOption") {
